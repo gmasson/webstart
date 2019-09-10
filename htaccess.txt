@@ -1,0 +1,26 @@
+# Disabling file listing in directories
+Options -Indexes
+
+# Protect HTACCESS File
+#<files ~ "^.*\.([Hh][Tt][Aa])">
+#order allow,deny
+#deny from all
+#satisfy all
+#</files>
+
+# Forcing UTF-8
+#<FilesMatch ".(htm|html|css|js)$">
+#AddDefaultCharset UTF-8
+#</FilesMatch>
+
+# Error 404 page
+#ErrorDocument 404 /404
+
+# Friendly URL
+#RewriteEngine on
+#RewriteRule ^\.php$ - [L]
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)$ index.php?page=$1
+#RewriteCond %{HTTPS} !on
+#RewriteRule (.*) https
