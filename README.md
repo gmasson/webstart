@@ -2,13 +2,13 @@
 Starting web development
 
 ## Includes
-- Angular
-- Jquery
-- VueJS
-- Popper.JS
+- Animate CSS
+- Bootstrap Icons
+- Kajado CSS
 - Bootstrap (CSS and JS)
-- FrontGama (CSS and JS)
-- Font Awesome
+- HTML5 Shiv
+- Jquery
+- Popper.JS
 - Support for Progressive Web Apps
 - Support for Social Widgets
 - Support for Sitemap

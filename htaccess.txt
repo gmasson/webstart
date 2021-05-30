@@ -11,24 +11,25 @@ Options All -Indexes
 #</files>
 
 # Forcing UTF-8
-<FilesMatch ".(htm|html|css|js)$">
-AddDefaultCharset UTF-8
-</FilesMatch>
+#<FilesMatch ".(htm|html|css|js)$">
+#AddDefaultCharset UTF-8
+#</FilesMatch>
 
-# Error 404 page
-ErrorDocument 404 /404
+# Error page
+#ErrorDocument 404 /404
+#ErrorDocument 500 /404
 
 # WWW Redirect
-RewriteCond %{HTTP_HOST} !^www\. [NC]
-RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+#RewriteCond %{HTTP_HOST} !^www\. [NC]
+#RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # HTTPS Redirect
-RewriteCond %{HTTP:X-Forwarded-Proto} !https
-RewriteCond %{HTTPS} off
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+#RewriteCond %{HTTP:X-Forwarded-Proto} !https
+#RewriteCond %{HTTPS} off
+#RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Friendly URL
-RewriteRule ^\.php$ - [L]
-RewriteCond %{SCRIPT_FILENAME} !-f
-RewriteCond %{SCRIPT_FILENAME} !-d
-RewriteRule ^(.*)$ index.php?page=$1 [L,QSA]
+#RewriteRule ^\.php$ - [L]
+#RewriteCond %{SCRIPT_FILENAME} !-f
+#RewriteCond %{SCRIPT_FILENAME} !-d
+#RewriteRule ^(.*)$ index.php?page=$1 [L,QSA]
