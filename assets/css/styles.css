@@ -1,1 +1,29 @@
 /* CSS */
+body {
+	background: #f3f3f3;
+}
+
+header {
+	width: 100%;
+	padding: 3em 0 1em 0;
+	text-align: center;
+}
+
+header img {
+	width: 40%;
+	min-width: 7em;
+	max-width: 17em;
+}
+
+section {
+	width: 100%;
+	padding: 1em 0;
+	text-align: center;
+}
+
+footer {
+	width: 100%;
+	padding: 1em 0;
+	margin: 1em 0 0 0;
+	text-align: center;
+}

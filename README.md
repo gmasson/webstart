@@ -1,11 +1,11 @@
 # Webstart
-Starting web development
+Project with utilities to start a new website
 
 ## Includes
-- Animate CSS
-- Bootstrap Icons
-- Kajado CSS
 - Bootstrap (CSS and JS)
+- Animate CSS
+- Kajado CSS
+- Bootstrap Icons
 - HTML5 Shiv
 - Jquery
 - Popper.JS
@@ -15,4 +15,4 @@ Starting web development
 - Indenting 4 Tabs
 
 ## Instructions
-- Comment out any libraries and tags you need
+Comment out any libraries and tags you need
