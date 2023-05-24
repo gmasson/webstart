@@ -1,5 +1,4 @@
 User-agent: *
-Disallow: /assets/css
-Disallow: /assets/js
+Disallow: /assets/js/
 
 Sitemap: https://www.site.com/sitemap.xml

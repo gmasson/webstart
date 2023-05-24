@@ -7,8 +7,9 @@ Project with utilities to start a new website
 - Kajado CSS
 - Bootstrap Icons
 - HTML5 Shiv
-- Jquery
 - Popper.JS
+- VueJS
+- JSQuantio
 - Support for Progressive Web Apps
 - Support for Social Widgets
 - Support for Sitemap
