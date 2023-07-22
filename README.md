@@ -1,5 +1,5 @@
 # Webstart
-Projeto para iniciar um novo projeto de desenvolvimento web
+Base para iniciar um novo projeto de desenvolvimento web
 
 ## Incluso
 - Bootstrap (CSS and JS)
