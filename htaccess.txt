@@ -1,35 +1,51 @@
-RewriteEngine on
+# Ativação do módulo de reescrita do Apache
+RewriteEngine On
 
-# Disabling file listing in directories
+# Desabilitar a listagem de diretórios
 Options All -Indexes
 
-# Protect HTACCESS File
-#<files ~ "^.*\.([Hh][Tt][Aa])">
-#order allow,deny
-#deny from all
-#satisfy all
-#</files>
+# Forçar o uso do conjunto de caracteres UTF-8
+AddDefaultCharset UTF-8
 
-# Forcing UTF-8
-#<FilesMatch ".(htm|html|css|js)$">
-#AddDefaultCharset UTF-8
-#</FilesMatch>
+# Proteção contra upload de arquivos maliciosos
+<FilesMatch "\.(bat|exe|cmd)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
 
-# Error page
-#ErrorDocument 404 /404
-#ErrorDocument 500 /404
+# Impedir o acesso direto a arquivos sensíveis
+<FilesMatch "(\.conf|\.bak|\.ini|\.log|\.sql|\.sqlite|\.htpasswd)">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
 
-# WWW Redirect
-#RewriteCond %{HTTP_HOST} !^www\. [NC]
-#RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# Limitar o acesso ao arquivo .htaccess
+<Files .htaccess>
+    Order allow,deny
+    Deny from all
+</Files>
 
-# HTTPS Redirect
-#RewriteCond %{HTTP:X-Forwarded-Proto} !https
-#RewriteCond %{HTTPS} off
-#RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# Redirecionar HTTP para HTTPS
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Friendly URL
-#RewriteRule ^\.php$ - [L]
-#RewriteCond %{SCRIPT_FILENAME} !-f
-#RewriteCond %{SCRIPT_FILENAME} !-d
-#RewriteRule ^(.*)$ index.php?page=$1 [L,QSA]
+# Impedir hotlinking
+#RewriteCond %{HTTP_REFERER} !^$
+#RewriteCond %{HTTP_REFERER} !^https://(www\.)?seusite.com/ [NC]
+#RewriteRule \.(jpg|jpeg|png|gif)$ - [NC,F,L]
+
+# Remover a extensão .php das URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^\.]+)/?$ $1.php [NC,L]
+
+# Redirecionar páginas de erro 404 e 500 para suas respectivas páginas personalizadas
+ErrorDocument 404 /404
+ErrorDocument 500 /500
+
+# Desabilitar informações do servidor
+ServerSignature Off
+
+# Desabilitar a exibição de informações de erros
+php_flag display_errors off
