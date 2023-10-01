@@ -1,51 +1,41 @@
-# Ativação do módulo de reescrita do Apache
-RewriteEngine On
-
 # Desabilitar a listagem de diretórios
 Options All -Indexes
+
+# Desabilitar case sensitive para acesso aos arquivos
+#CheckSpelling On
 
 # Forçar o uso do conjunto de caracteres UTF-8
 AddDefaultCharset UTF-8
 
-# Proteção contra upload de arquivos maliciosos
-<FilesMatch "\.(bat|exe|cmd)$">
-    Order allow,deny
-    Deny from all
-</FilesMatch>
-
-# Impedir o acesso direto a arquivos sensíveis
-<FilesMatch "(\.conf|\.bak|\.ini|\.log|\.sql|\.sqlite|\.htpasswd)">
-    Order allow,deny
-    Deny from all
-</FilesMatch>
-
-# Limitar o acesso ao arquivo .htaccess
-<Files .htaccess>
-    Order allow,deny
-    Deny from all
-</Files>
-
-# Redirecionar HTTP para HTTPS
-RewriteCond %{HTTP:X-Forwarded-Proto} !https
-RewriteCond %{HTTPS} off
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-# Impedir hotlinking
-#RewriteCond %{HTTP_REFERER} !^$
-#RewriteCond %{HTTP_REFERER} !^https://(www\.)?seusite.com/ [NC]
-#RewriteRule \.(jpg|jpeg|png|gif)$ - [NC,F,L]
+# Ativação do módulo de reescrita do Apache
+RewriteEngine On
 
 # Remover a extensão .php das URLs
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^([^\.]+)/?$ $1.php [NC,L]
 
-# Redirecionar páginas de erro 404 e 500 para suas respectivas páginas personalizadas
-ErrorDocument 404 /404
-ErrorDocument 500 /500
+# Redirecionar página de erro para sua respectiva página personalizada
+ErrorDocument 404 /404.html
+
+# Impedir o acesso direto a arquivos sensíveis
+<FilesMatch "(\.(ini|inc|log|sql|sqlite|db|htpasswd|htaccess|conf|config|gitignore|swp|old|bak|backup|dist|sh|bat|cmd)$)">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Redirecionar HTTP para HTTPS
+#RewriteCond %{HTTP:X-Forwarded-Proto} !https
+#RewriteCond %{HTTPS} off
+#RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Impedir hotlinking
+#RewriteCond %{HTTP_REFERER} !^$
+#RewriteCond %{HTTP_REFERER} !^https://(www\.)?seusite.com/ [NC]
+#RewriteRule \.(jpg|jpeg|png|gif)$ - [NC,F,L]
 
 # Desabilitar informações do servidor
-ServerSignature Off
+#ServerSignature Off
 
 # Desabilitar a exibição de informações de erros
-php_flag display_errors off
+#php_flag display_errors off
