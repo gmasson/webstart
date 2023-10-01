@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Baseado em https://www.sitemaps.org/pt_BR/protocol.html -->
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
    <url>
       <loc>https://www.seusite.com/</loc>
-      <changefreq>yearly</changefreq>
+      <!-- <changefreq>yearly</changefreq> -->
       <!-- <changefreq>monthly</changefreq> -->
       <!-- <changefreq>hourly</changefreq> -->
    </url>
 
-</urlset> 
+</urlset>
