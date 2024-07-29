@@ -13,7 +13,7 @@ RewriteEngine On
 # Remover a extensão .php das URLs
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.php -f
-RewriteRule ^([^\.]+)/?$ $1.php [NC,L]
+RewriteRule ^([^/]+)/?$ $1.php [NC,L,QSA]
 
 # Redirecionar página de erro para sua respectiva página personalizada
 ErrorDocument 404 /404.html
