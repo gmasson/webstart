@@ -1,2 +1,2 @@
 /* JS */
-console.log("Hello World")
+console.log("Webstart");
