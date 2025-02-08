@@ -1,0 +1,35 @@
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Arquivos de ambiente virtual
+.env
+env/
+.venv
+venv/
+env.bak/
+venv.bak/
+.env.local
+.env.*.local
+
+# Arquivos de cache
+*.cache
+.cache/
+tmp/
+cache/
+
+# Arquivos de logs, backups e configurações
+*.bak
+*.swp
+*.swo
+*.swn
+*.log
+*.tmp
+.vscode/
+
+# Arquivos de Chaves e certificados
+*.key
+*.pem
+*.cert
+*.pfx

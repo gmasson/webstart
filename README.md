@@ -6,13 +6,14 @@
 
 - Bootstrap (CSS and JS)
 - Indentação 4 Tabs
-- Suporte para Progressive Web Apps
 - Suporte para Social Widgets
+- Suporte para Progressive Web Apps
+- Suporte para Dados Estruturados
 - Suporte para Sitemap
 
 ## Pré-requisitos
 
-Este projeto utiliza o [Bootstrap](https://getbootstrap.com/) para o design responsivo e algumas bibliotecas externas para melhorar a experiência do usuário. Certifique-se de ter uma conexão com a internet para carregar os recursos do CDN.
+Este projeto utiliza o [Bootstrap](https://getbootstrap.com/) para o design responsivo e tem suporte para algumas bibliotecas externas. Certifique-se de ter uma conexão com a internet para carregar os recursos do CDN.
 
 ## Instalação
 
@@ -36,6 +37,8 @@ Este projeto utiliza o [Bootstrap](https://getbootstrap.com/) para o design resp
   - `css/`: Arquivos de estilo. Contém os arquivos CSS personalizados, incluindo o `styles.css`, que define o estilo visual do template.
   - `img/`: Imagens, incluindo o logo e ícones. Armazena as imagens utilizadas no projeto, como o logo, ícones de favicon e outras imagens de mídia.
   - `js/`: Scripts JavaScript. Contém os scripts JavaScript usados para adicionar interatividade e funcionalidades ao template.
+- `.editorconfig`: Arquivo de configuração para garantir consistência de estilo de código em diferentes editores e IDEs. Define regras para indentação, espaçamento, e outros estilos de código.
+- `.gitignore`: Arquivo usado para especificar quais arquivos ou pastas não devem ser monitorados pelo Git.
 - `htaccess.txt`: Arquivo de configuração para o servidor Apache. Contém regras de reescrita de URL, controle de cache, segurança, e outras configurações do servidor. Para usar, basta renomear o arquivo para `.htaccess` no servidor.
 - `index.html`: Página principal do template. Arquivo HTML onde o layout e conteúdo básico do site estão definidos, com estrutura básica de navegação, seções de conteúdo, e rodapé.
 - `manifest.json`: Arquivo de manifesto para web apps. Usado para configurar o comportamento e aparência do site quando acessado em dispositivos móveis como um PWA (Progressive Web App). Ele inclui informações como o nome do app, ícones, cor de fundo e cor do tema.
@@ -44,7 +47,7 @@ Este projeto utiliza o [Bootstrap](https://getbootstrap.com/) para o design resp
 
 ## Contribuindo
 
-Se você gostaria de contribuir para este projeto, fique à vontade para abrir issues ou enviar pull requests. As contribuições são bem-vindas!
+Se você gostaria de contribuir para este projeto, fique à vontade para enviar pull requests. As contribuições são bem-vindas!
 
 ### Como Contribuir
 

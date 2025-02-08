@@ -1,0 +1,13 @@
+# Define que este é o arquivo de configuração raiz
+root = true
+
+[*]  # Aplica as regras a todos os arquivos
+indent_style = tab  # Usa tabulação ao invés de espaços
+indent_size = 4  # Define tabulação como 4 espaços
+charset = utf-8  # Usa codificação UTF-8
+end_of_line = lf  # Usa LF (Unix/macOS/Linux) como quebra de linha
+trim_trailing_whitespace = true  # Remove espaços em branco no final das linhas
+insert_final_newline = true  # Garante uma linha vazia no final dos arquivos
+
+[*.md]  # Configuração específica para arquivos Markdown
+trim_trailing_whitespace = false  # Mantém espaços em branco no final das linhas (Markdown usa espaços para quebras)
