@@ -1,89 +1,162 @@
 /* Definição de variáveis do tema (padrão - Claro) */
 :root {
-    --background-color: #fff;
-    --text-color: #000;
-    --border-color: #ddd;
-    --cor-primaria: #3498db;
-    --cor-secundaria: #2ecc71;
-    --cor-fundo: #f4f4f4;
-    --shadow-color: rgba(0, 0, 0, 0.1);
+	--background-color: #fafafa;
+	--background-color-2: #fff;
+	--text-color: #333;
+	--text-color-2: #777;
+	--border-color: #ddd;
+	--shadow-color: rgba(0, 0, 0, 0.1);
+	--primary-color: #3498db;
+	--secondary-color: #2ecc71;
 }
 
 /* Tema Escuro manual via atributo data-theme="dark" */
 [data-theme="dark"] {
-    --background-color: #222;
-    --text-color: #fff;
-    --border-color: #444;
-    --cor-fundo: #181818;
-    --shadow-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Tema Escuro automático, aplicado apenas se nenhum atributo data-theme estiver definido */
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme]) {
-        --background-color: #222;
-        --text-color: #fff;
-        --border-color: #444;
-        --cor-fundo: #181818;
-        --shadow-color: rgba(255, 255, 255, 0.1);
-    }
+	--background-color: #222;
+	--background-color-2: #181818;
+	--text-color: #fff;
+	--text-color-2: #f4f4f4;
+	--border-color: #444;
+	--shadow-color: rgba(121, 121, 121, 0.1);
 }
 
 /* Corpo da página */
 body {
-    background: var(--background-color);
-    color: var(--text-color);
-    font-family: Arial, sans-serif;
-    transition: background 0.2s ease, color 0.2s ease;
+	background: var(--background-color);
+	color: var(--text-color);
+	font-family: Arial, sans-serif;
+	transition: background 0.2s ease, color 0.2s ease;
 }
 
-/* Classes de cores */
+a {
+	color: var(--text-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+article {
+    line-height: 1.6;
+    font-size: 1.1em;
+    padding: 1em 0;
+    margin: 1.2em auto;
+}
+
+article img {
+    margin-bottom: 1em;
+}
+
+/*
+	Classes de cores
+*/
+
 .color {
-    color: var(--cor-primaria);
+	color: var(--primary-color);
 }
 
 .bg-color {
-    background-color: var(--cor-primaria);
-    color: #fff;
+	background-color: var(--primary-color);
+	color: #fff;
 }
 
 .btn-color {
-    background-color: var(--cor-primaria);
-    color: #fff;
-    padding: 0.6em 1.2em;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.2s ease, transform 0.2s ease;
+	padding: 0.6em 1.2em;
+	background-color: var(--primary-color);
+	color: #fff;
+	border: none;
+	border-radius: .3em;
+	cursor: pointer;
+	transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .btn-color:hover {
-    filter: brightness(0.9);
+	filter: brightness(0.9);
 }
 
-/* Cabeçalho */
+/*
+	Componentes
+*/
+
+.box {
+	width: 100%;
+	padding: 1.6em 2.1em;
+	background: var(--background-color-2);
+	color: var(--text-color-2);
+	border: 1px solid var(--border-color);
+	border-radius: .3em;
+	box-shadow: -.1em .1em .4em var(--shadow-color);
+}
+
+.table,
+.table * {
+	background: var(--background-color);
+	color: var(--text-color);
+}
+
+/*
+	Cabeçalho
+*/
+
 header {
-    width: 100%;
+	width: 100%;
 }
 
 header .logo {
-    height: 3.3em;
-    margin: 0;
+	height: 3em;
+	margin: 0;
 }
 
-/* Seções */
+header .navbar {
+	background: var(--background-color-2);
+	color: var(--text-color-2);
+}
+
+header .navbar .nav-item,
+header .navbar .nav-item .nav-link,
+header .navbar .nav-item .nav-link.active,
+header a {
+	color: var(--text-color-2);
+}
+
+header .navbar .nav-item .nav-link.active,
+header a:hover {
+	color: var(--text-color);
+}
+
+header .navbar .nav-item:hover .nav-link {
+	filter: brightness(0.9);
+}
+
+header .navbar .dropdown-menu,
+header .navbar .dropdown-menu .dropdown-item {
+	background: var(--background-color-2);
+	color: var(--text-color-2);
+}
+
+header .navbar .dropdown-menu .dropdown-item:hover {
+	filter: brightness(0.9);
+}
+
+/*
+	Seções
+*/
+
 section {
-    width: 100%;
-    padding: 3em 0;
+	width: 100%;
+	padding: 3em 0;
 }
 
-/* Rodapé */
+/*
+	Rodapé
+*/
+
 footer {
-    border-top: 1px solid var(--border-color);
-    width: 100%;
-    padding: 1em 0;
-    margin: 1em 0 0 0;
-    text-align: center;
-    background: var(--cor-fundo);
-    box-shadow: 0 -2px 5px var(--shadow-color);
+	width: 100%;
+	padding: 2em 0;
+	background: var(--background-color-2);
+	color: var(--text-color);
+	border-top: 1px solid var(--border-color);
+	text-align: center;
 }

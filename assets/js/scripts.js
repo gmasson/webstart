@@ -2,7 +2,7 @@
 function getById(id) {
 	return document.getElementById(id);
 }
-  
+
 // Função para adicionar uma classe a um elemento
 function addClass(element, className) {
 	if (!(element instanceof Element)) {
@@ -10,7 +10,7 @@ function addClass(element, className) {
 	}
 	element.classList.add(className);
 }
-  
+
 // Função para remover uma classe de um elemento
 function removeClass(element, className) {
 	if (!(element instanceof Element)) {
@@ -37,3 +37,15 @@ function scrollToTop() {
 	});
 }
 
+// Função para aplicar o tema baseado na preferência do dispositivo
+function applyTheme() {
+	let body = document.body;
+	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+		body.setAttribute('data-theme', 'dark');
+	} else {
+		body.setAttribute('data-theme', 'light');
+	}
+}
+
+// Aplica o tema ao carregar a página
+//applyTheme();
