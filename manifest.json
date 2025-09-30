@@ -10,36 +10,36 @@
 	"scope": "/",
 	"screenshots": [
 	{
-		"src": "/img/screenshot1.png",
-		"type": "image/png",
+		"src": "assets/img/screenshot1.jpg",
+		"type": "image/jpeg",
 		"sizes": "540x720",
 		"form_factor": "narrow"
 	},
 	{
-		"src": "/img/screenshot2.jpg",
-		"type": "image/jpg",
+		"src": "assets/img/screenshot2.jpg",
+		"type": "image/jpeg",
 		"sizes": "720x540",
 		"form_factor": "wide"
 	}
 	],
 	"icons": [
 	{
-	"src": "img/icon-128.png",
+	"src": "assets/img/icon-128.png",
 		"sizes": "128x128",
 		"type": "image/png"
 	},
 	{
-		"src": "img/icon-152.png",
+		"src": "assets/img/icon-152.png",
 		"sizes": "152x152",
 		"type": "image/png"
 	},
 	{
-		"src": "img/icon-192.png",
+		"src": "assets/img/icon-192.png",
 		"sizes": "192x192",
 		"type": "image/png"
 	},
 	{
-		"src": "img/icon-256.png",
+		"src": "assets/img/icon-256.png",
 		"sizes": "256x256",
 		"type": "image/png"
 	}

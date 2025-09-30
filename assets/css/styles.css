@@ -143,6 +143,7 @@ header .navbar .dropdown-menu .dropdown-item:hover {
 	Seções
 */
 
+main,
 section {
 	width: 100%;
 	padding: 3em 0;

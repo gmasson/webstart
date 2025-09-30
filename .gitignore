@@ -33,3 +33,9 @@ cache/
 *.pem
 *.cert
 *.pfx
+
+# Arquivos de build e distribuição
+dist/
+build/
+*.egg-info/
+__pycache__/

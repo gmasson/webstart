@@ -1,15 +1,20 @@
 # WebStart - Template para Projetos Web
 
-**WebStart** é um template básico e altamente personalizável para começar rapidamente qualquer projeto web. Ele é projetado para ser simples, eficiente e fácil de usar, com suporte completo para responsividade e otimização de SEO.
+![Versão](https://img.shields.io/badge/versão-1.8-blue.svg)
+![Licença](https://img.shields.io/badge/licença-MIT-green.svg)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 
-## Incluso
+WebStart é um template básico e altamente personalizável para começar rapidamente qualquer projeto web. Ele é projetado para ser simples, eficiente e fácil de usar, com suporte completo para responsividade e otimização de SEO.
 
-- Bootstrap (CSS and JS)
-- Indentação 4 Tabs
-- Suporte para Social Widgets
-- Suporte para Progressive Web Apps
-- Suporte para Dados Estruturados
-- Suporte para Sitemap
+- 🎨 **Tema Claro/Escuro** - Suporte nativo para alternância de temas
+- 📱 **PWA Ready** - Progressive Web App com manifest
+- 🔍 **SEO Otimizado** - Meta tags completas e dados estruturados
+- 📐 **Design Responsivo** - Compatível com todos os dispositivos
+- ⚡ **Performance** - Carregamento rápido e otimizado
+- 🌐 **Acessibilidade** - Seguindo padrões WCAG
+- 🛡️ **Segurança** - Headers de segurança configurados
 
 ## Pré-requisitos
 
@@ -29,21 +34,7 @@ Este projeto utiliza o [Bootstrap](https://getbootstrap.com/) para o design resp
 
 	- **Logo**: Substitua a imagem do logo em `assets/img/logo.png` com a sua.
 	- **Ícones**: Personalize o ícone da página substituindo o arquivo `assets/img/favicon.png`.
-	- **Conteúdo**: Atualize as seções de conteúdo no arquivo `index.html` para refletir o seu conteúdo e estrutura de página.
-
-### Estrutura de Diretórios
-
-- `assets/`
-  - `css/`: Arquivos de estilo. Contém os arquivos CSS personalizados, incluindo o `styles.css`, que define o estilo visual do template.
-  - `img/`: Imagens, incluindo o logo e ícones. Armazena as imagens utilizadas no projeto, como o logo, ícones de favicon e outras imagens de mídia.
-  - `js/`: Scripts JavaScript. Contém os scripts JavaScript usados para adicionar interatividade e funcionalidades ao template.
-- `.editorconfig`: Arquivo de configuração para garantir consistência de estilo de código em diferentes editores e IDEs. Define regras para indentação, espaçamento, e outros estilos de código.
-- `.gitignore`: Arquivo usado para especificar quais arquivos ou pastas não devem ser monitorados pelo Git.
-- `htaccess.txt`: Arquivo de configuração para o servidor Apache. Contém regras de reescrita de URL, controle de cache, segurança, e outras configurações do servidor. Para usar, basta renomear o arquivo para `.htaccess` no servidor.
-- `index.html`: Página principal do template. Arquivo HTML onde o layout e conteúdo básico do site estão definidos, com estrutura básica de navegação, seções de conteúdo, e rodapé.
-- `manifest.json`: Arquivo de manifesto para web apps. Usado para configurar o comportamento e aparência do site quando acessado em dispositivos móveis como um PWA (Progressive Web App). Ele inclui informações como o nome do app, ícones, cor de fundo e cor do tema.
-- `robots.txt`: Arquivo de controle de indexação para motores de busca. Informa aos motores de busca (como Google, Bing, etc.) quais páginas ou diretórios devem ser indexados e quais devem ser ignorados. Essencial para SEO.
-- `sitemap.xml`: Arquivo de mapa do site. Utilizado para informar aos motores de busca a estrutura das páginas do seu site e facilitar a indexação das mesmas. Contém URLs do site e a frequência com que as páginas são atualizadas.
+	- **Conteúdo**: Atualize as seções de conteúdo no arquivo `index.html` e outros arquivos para refletir o seu conteúdo e estrutura de página.
 
 ## Contribuindo
 
