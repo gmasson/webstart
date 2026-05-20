@@ -1,53 +1,67 @@
 # WebStart - Template para Projetos Web
 
-![Versão](https://img.shields.io/badge/versão-1.8-blue.svg)
+![Versão](https://img.shields.io/badge/versão-2.0-blue.svg)
 ![Licença](https://img.shields.io/badge/licença-MIT-green.svg)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white)
 
-WebStart é um template básico e altamente personalizável para começar rapidamente qualquer projeto web. Ele é projetado para ser simples, eficiente e fácil de usar, com suporte completo para responsividade e otimização de SEO.
+WebStart é um template estático para iniciar rapidamente projetos web com HTML semântico, Tailwind CSS via CDN e JavaScript leve. Ele mantém dados de exemplo de propósito, para servir como ponto de partida em novos sites, landing pages, páginas institucionais, páginas de produto, MVPs e protótipos.
 
-- 🎨 **Tema Claro/Escuro** - Suporte nativo para alternância de temas
-- 📱 **PWA Ready** - Progressive Web App com manifest
-- 🔍 **SEO Otimizado** - Meta tags completas e dados estruturados
-- 📐 **Design Responsivo** - Compatível com todos os dispositivos
-- ⚡ **Performance** - Carregamento rápido e otimizado
-- 🌐 **Acessibilidade** - Seguindo padrões WCAG
-- 🛡️ **Segurança** - Headers de segurança configurados
+## Recursos
 
-## Pré-requisitos
+- 🎨 **Tema claro/escuro** com preferência salva localmente.
+- ⚡ **Tailwind CSS via CDN** para prototipagem rápida, sem etapa de build.
+- 📱 **Base PWA** com manifest, ícones e screenshots.
+- 🔍 **SEO inicial** com canonical, descrição, Open Graph, Twitter/X e JSON-LD.
+- ♿ **Acessibilidade** com HTML semântico, skip link, foco visível e formulário com labels.
+- 🧭 **Arquivos de publicação** com robots, sitemap, página 404 e modelo de configuração Apache.
+- 🧩 **Componentes de exemplo** para cards, checklist, formulário e chamada para ação.
 
-Este projeto utiliza o [Bootstrap](https://getbootstrap.com/) para o design responsivo e tem suporte para algumas bibliotecas externas. Certifique-se de ter uma conexão com a internet para carregar os recursos do CDN.
+## Estrutura
 
-## Instalação
+```text
+index.html
+404.html
+manifest.json
+robots.txt
+sitemap.xml
+assets/
+  css/styles.css
+  js/scripts.js
+  img/
+```
 
-1. **Baixe ou clone o repositório:**
+## Como usar
 
-	Para baixar o template, use o botão **Download** na interface do GitHub ou clone o repositório:
+1. Baixe o template ou use-o como base para um novo repositório.
+2. Substitua textos, links, imagens e chamadas para ação pelos dados reais do projeto.
+3. Troque `https://site.com/` pelo domínio final em HTML, sitemap e robots.
+4. Atualize `title`, `description`, Open Graph, Twitter/X e JSON-LD.
+5. Revise o manifest com nome, descrição, cores, ícones e screenshots do projeto final.
+6. Remova componentes de exemplo que não forem usados.
+7. Configure cabeçalhos, redirecionamentos e cache no provedor de hospedagem.
 
-	```bash
-	git clone https://github.com/gmasson/webstart.git
-	```
+## Observações sobre Tailwind via CDN
 
-2. **Adicione suas próprias personalizações:**
+O uso via CDN é prático para começar rápido e editar arquivos estáticos diretamente. Para projetos maiores ou com requisitos rígidos de performance, considere migrar para uma etapa de build do Tailwind para gerar apenas o CSS usado em produção.
 
-	- **Logo**: Substitua a imagem do logo em `assets/img/logo.png` com a sua.
-	- **Ícones**: Personalize o ícone da página substituindo o arquivo `assets/img/favicon.png`.
-	- **Conteúdo**: Atualize as seções de conteúdo no arquivo `index.html` e outros arquivos para refletir o seu conteúdo e estrutura de página.
+## Checklist antes de publicar
 
-## Contribuindo
+- [ ] Conteúdo real no lugar dos textos de exemplo.
+- [ ] Domínio final aplicado em canonical, Open Graph, Twitter/X, JSON-LD, sitemap e robots.
+- [ ] Imagens otimizadas e com textos alternativos adequados.
+- [ ] Contraste, navegação por teclado e foco visível testados.
+- [ ] Formulários conectados a uma API segura com validação no servidor.
+- [ ] Cabeçalhos de segurança configurados no ambiente final.
+- [ ] Componentes, comentários e assets não utilizados removidos.
+- [ ] Sitemap enviado aos mecanismos de busca quando aplicável.
 
-Se você gostaria de contribuir para este projeto, fique à vontade para enviar pull requests. As contribuições são bem-vindas!
+## Publicação
 
-### Como Contribuir
-
-1. **Fork este repositório.**
-2. **Crie uma branch** para sua funcionalidade (`git checkout -b minha-nova-funcionalidade`).
-3. **Commit suas alterações** (`git commit -am 'Adiciona nova funcionalidade'`).
-4. **Push para a branch** (`git push origin minha-nova-funcionalidade`).
-5. Abra uma **pull request** para revisão.
+O projeto pode ser publicado como site estático em serviços como GitHub Pages, Cloudflare Pages, Netlify, Vercel ou hospedagens tradicionais. Em servidores Apache, o arquivo `htaccess.txt` pode ser usado como referência para criar um `.htaccess` conforme o ambiente.
 
 ## Licença
 
-Este projeto está licenciado sob a Licença MIT - consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este projeto está licenciado sob a Licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.

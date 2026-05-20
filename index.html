@@ -1,202 +1,288 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-	<!-- WebStart 1.8 | https://github.com/gmasson/webstart | License MIT -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- WebStart 2.0 | https://github.com/gmasson/webstart | Licença MIT -->
 	<meta charset="utf-8">
-	<meta name="Resource-type" content="document">
-	<link rel="canonical" href="https://site.com/">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="resource-type" content="document">
 	<meta name="robots" content="index, follow">
 	<meta name="rating" content="general">
-	<meta name="author" content="">
-	<meta name="keywords" content="">
-	<meta name="description" content="">
-    <meta name="language" content="pt-BR">
-	<title>Webstart</title>
+	<meta name="author" content="Nome do autor ou empresa">
+	<meta name="description" content="Template base para iniciar projetos web com HTML semântico, Tailwind CSS via CDN, JavaScript leve, SEO, acessibilidade e PWA.">
+	<meta name="language" content="pt-BR">
+	<link rel="canonical" href="https://site.com/">
+	<title>WebStart - Template para iniciar projetos web</title>
 
-	<!-- Idiomas / Hreflang -->
-    <!-- <link rel="alternate" hreflang="x-default" href="https://site.com/"> -->
-    <!-- <link rel="alternate" hreflang="pt-br" href="https://site.com/"> -->
-    <!-- <meta name="application-name" content="Webstart" lang="pt-br" /> -->
-    <!-- <link rel="alternate" hreflang="en" href="https://site.com/en/"> -->
-    <!-- <meta name="application-name" content="Webstart" lang="en" /> -->
-    <!-- <link rel="alternate" hreflang="es" href="https://site.com/es/"> -->
-    <!-- <meta name="application-name" content="Webstart" lang="es" /> -->
+	<!-- Idiomas / hreflang: substitua pelas URLs reais quando houver versões traduzidas -->
+	<!-- <link rel="alternate" hreflang="x-default" href="https://site.com/"> -->
+	<!-- <link rel="alternate" hreflang="pt-br" href="https://site.com/"> -->
+	<!-- <link rel="alternate" hreflang="en" href="https://site.com/en/"> -->
+	<!-- <link rel="alternate" hreflang="es" href="https://site.com/es/"> -->
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/img/favicon.ico" />
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
-    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
-    <link rel="icon" type="image/png" href="assets/img/favicon-96x96.png" sizes="96x96">
+	<!-- Ícones -->
+	<link rel="icon" type="image/png" href="assets/img/favicon.png">
+	<link rel="icon" type="image/png" sizes="128x128" href="assets/img/icon-128.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="assets/img/icon-192.png">
+	<link rel="apple-touch-icon" href="assets/img/icon-192.png">
 
-    <!-- Icons -->
-    <link rel="icon" type="image/png" href="assets/img/icon.png">
-    <link rel="icon" type="image/png" sizes="64x64" href="assets/img/icon-64.png">
-    <link rel="icon" type="image/png" sizes="128x128" href="assets/img/icon-128.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="assets/img/android-chrome-512x512.png">
+	<!-- PWA -->
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="msapplication-TileColor" content="#1d4ed8">
+	<meta name="msapplication-TileImage" content="assets/img/icon-192.png">
+	<meta name="theme-color" content="#1d4ed8">
+	<meta name="application-name" content="WebStart">
+	<link rel="manifest" href="manifest.json">
 
-    <!-- PWA -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="msapplication-TileColor" content="#333333">
-    <meta name="msapplication-TileImage" content="assets/img/icon.png">
-    <meta name="theme-color" content="#333333">
-    <meta name="application-name" content="Webstart">
-    <link rel="manifest" href="manifest.json">
+	<!-- Open Graph / redes sociais -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://site.com/">
+	<meta property="og:title" content="WebStart - Template para iniciar projetos web">
+	<meta property="og:description" content="Base inicial com HTML semântico, Tailwind CSS via CDN, JavaScript leve, SEO, acessibilidade e PWA para personalizar.">
+	<meta property="og:image" content="https://site.com/assets/img/screenshot2.jpg">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="og:image:alt" content="Prévia visual do template WebStart">
+	<meta property="og:site_name" content="WebStart">
+	<meta property="og:locale" content="pt_BR">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://site.com/">
-    <meta property="og:title" content="">
-    <meta property="og:description" content="">
-    <meta property="og:image" content="https://site.com/og-preview.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="">
-    <meta property="og:site_name" content="GerarOnline">
-    <meta property="og:locale" content="pt_BR">
+	<!-- Cartão do Twitter/X -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:url" content="https://site.com/">
+	<meta name="twitter:title" content="WebStart - Template para iniciar projetos web">
+	<meta name="twitter:description" content="Template base com Tailwind CSS via CDN, acessibilidade, SEO e estrutura pronta para novos sites.">
+	<meta name="twitter:image" content="https://site.com/assets/img/screenshot2.jpg">
+	<meta name="twitter:image:alt" content="Prévia visual do template WebStart">
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://site.com/">
-    <meta name="twitter:title" content="">
-    <meta name="twitter:description" content="">
-    <meta name="twitter:image" content="https://site.com/og-preview.jpg">
-    <meta name="twitter:image:alt" content="">
+	<!-- Metadados adicionais de SEO -->
+	<meta name="geo.region" content="BR">
+	<meta name="geo.country" content="Brazil">
+	<meta name="distribution" content="global">
 
-    <!-- Additional SEO Meta Tags -->
-    <meta name="geo.region" content="BR">
-    <meta name="geo.country" content="Brazil">
-    <meta name="distribution" content="global">
-
-	<!-- Dados estruturados -->
-	<!-- 
-	https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data?hl=pt-br
-	https://developers.google.com/search/docs/appearance/structured-data/search-gallery?hl=pt-br
-	-->
+	<!-- Dados estruturados: substitua o domínio, nome e descrição pelo projeto final -->
 	<script type="application/ld+json">
 		{
 			"@context": "https://schema.org",
 			"@type": "WebSite",
-			"name": "Webstart",
-			"url": "https://site.com",
-			"description": "",
-			"logo": "https://site.com/logo.png",
-			"language": "pt-br",
-			"potentialAction": {
-				"@type": "SearchAction",
-				"target": "https://site.com/search?q={search_term_string}",
-				"query-input": "required name=search_term_string"
+			"name": "WebStart",
+			"url": "https://site.com/",
+			"description": "Template base para iniciar projetos web com HTML semântico, Tailwind CSS via CDN, JavaScript leve, SEO, acessibilidade e PWA.",
+			"inLanguage": "pt-BR",
+			"publisher": {
+				"@type": "Organization",
+				"name": "WebStart",
+				"logo": {
+					"@type": "ImageObject",
+					"url": "https://site.com/assets/img/logo.png"
+				}
 			}
 		}
-	</script>	
+	</script>
 
-	<!-- CSS / Bootstrap 5.3.8 -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-	<!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css"> -->
+	<!-- Tailwind CSS via CDN: ideal para protótipos e templates sem etapa de build -->
+	<script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Bootstrap Icons -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet"> -->
-    
-	<!-- CSS / Styles -->
+	<!-- Estilos complementares do template -->
 	<link rel="stylesheet" href="assets/css/styles.css" type="text/css">
 </head>
-<body data-theme="light">
+<body data-theme="light" class="min-h-screen bg-[var(--background-color)] text-[var(--text-color)] antialiased">
+	<a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
 
-	<!-- Header (com Navbar) -->
-	<header role="banner">
-		<nav class="navbar navbar-expand-lg" role="navigation" aria-label="Navegação principal">
-			<div class="container">
-				<a class="navbar-brand" href="#">
-					<img src="assets/img/logo.png" class="logo" alt="Logo" loading="lazy">
-				</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Alternar navegação">
-					<span class="navbar-toggler-icon"></span>
+	<!-- Cabeçalho -->
+	<header class="site-header sticky top-0 z-40 border-b border-[var(--border-color)] backdrop-blur">
+		<nav class="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8" aria-label="Navegação principal">
+			<a class="flex items-center gap-3 rounded-xl focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[var(--focus-ring)]" href="#conteudo" aria-label="WebStart - ir para o início">
+				<img src="assets/img/logo.png" class="h-11 w-11" alt="Símbolo do WebStart" width="44" height="44" fetchpriority="high">
+				<span class="text-lg font-bold tracking-tight">WebStart</span>
+			</a>
+
+			<div class="flex flex-wrap items-center justify-end gap-2 text-sm font-medium">
+				<a class="rounded-full px-3 py-2 text-[var(--muted-color)] transition hover:bg-[var(--surface-muted)] hover:text-[var(--text-color)]" href="#recursos">Recursos</a>
+				<a class="rounded-full px-3 py-2 text-[var(--muted-color)] transition hover:bg-[var(--surface-muted)] hover:text-[var(--text-color)]" href="#componentes">Componentes</a>
+				<a class="rounded-full px-3 py-2 text-[var(--muted-color)] transition hover:bg-[var(--surface-muted)] hover:text-[var(--text-color)]" href="#checklist">Checklist</a>
+				<a class="rounded-full px-3 py-2 text-[var(--muted-color)] transition hover:bg-[var(--surface-muted)] hover:text-[var(--text-color)]" href="#estrutura">Estrutura</a>
+				<button class="btn-color" type="button" data-theme-toggle aria-label="Alternar para tema escuro">
+					<span data-theme-label>Usar tema escuro</span>
 				</button>
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav mb-md-auto ms-auto mr-auto" role="list">
-						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="#">Início</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">Sobre</a>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
-								Menu
-							</a>
-							<ul class="dropdown-menu" aria-labelledby="navbarDropdown" role="menu">
-								<li><a class="dropdown-item" href="#" role="menuitem">Produtos</a></li>
-								<li><a class="dropdown-item" href="#" role="menuitem">Serviços</a></li>
-								<li><hr class="dropdown-divider" role="separator"></li>
-								<li><a class="dropdown-item" href="#" role="menuitem">Contato</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
 			</div>
 		</nav>
 	</header>
 
-	<!-- Main -->
-	<main role="main" aria-label="Conteúdo principal">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-3">
-					<aside role="complementary" aria-label="Navegação lateral">
-						<nav class="nav flex-column" role="navigation" aria-label="Menu lateral">
-							<a class="nav-link active" aria-current="page" href="#">
-								Página Inicial
-							</a>
-							<a class="nav-link" href="#">
-								Produtos <span class="badge bg-color" aria-label="4 itens">4</span>
-							</a>
-							<a class="nav-link" href="#">
-								Serviços
-							</a>
-							<a class="nav-link disabled" aria-disabled="true">
-								Contato
-							</a>
-						  </nav>
-					</aside>
+	<!-- Conteúdo principal -->
+	<main id="conteudo" tabindex="-1">
+		<!-- Apresentação -->
+		<section class="template-grid-background border-b border-[var(--border-color)] px-4 py-20 sm:px-6 lg:px-8" aria-labelledby="titulo-principal">
+			<div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+				<div>
+					<p class="mb-5 inline-flex rounded-full border border-[var(--border-color)] bg-[var(--surface-color)] px-4 py-2 text-sm font-semibold text-[var(--primary-color)] shadow-sm">
+						Template inicial com Tailwind CSS via CDN
+					</p>
+					<h1 id="titulo-principal" class="max-w-4xl text-4xl font-black tracking-tight text-[var(--text-color)] sm:text-5xl lg:text-6xl">
+						Comece novos sites com uma base simples, acessível e pronta para personalizar.
+					</h1>
+					<p class="mt-6 max-w-2xl text-lg leading-8 text-[var(--muted-color)]">
+						Use este template como ponto de partida para landing pages, sites institucionais, páginas de produto, MVPs e protótipos. Substitua os textos, domínios, imagens e metadados pelos dados reais do projeto final.
+					</p>
+					<div class="mt-8 flex flex-wrap gap-3">
+						<a class="btn-color" href="#checklist">Ver checklist</a>
+						<a class="inline-flex items-center justify-center rounded-full border border-[var(--border-color)] px-5 py-3 font-semibold text-[var(--text-color)] transition hover:bg-[var(--surface-muted)]" href="#componentes">Explorar componentes</a>
+					</div>
 				</div>
-				<div class="col-md-9">
-					<div class="box">
-						<article role="article">
-							<h1>Comece do início</h1>
-							<p>Lorem Ipsum é simplesmente um texto fictício da indústria tipográfica e de impressão. Lorem Ipsum tem sido o texto padrão fictício da indústria desde os anos 1500, quando um impressor desconhecido pegou uma galé de tipos e os embaralhou para fazer um livro de espécimes de tipos. Ele sobreviveu não apenas cinco séculos, mas também o salto para a composição eletrônica, permanecendo essencialmente inalterado. Foi popularizado na década de 1960 com o lançamento de folhas Letraset contendo passagens de Lorem Ipsum e, mais recentemente, com software de editoração eletrônica como Aldus PageMaker, incluindo versões de Lorem Ipsum.</p>
-						</article>
-				  </div>
+
+				<aside class="rounded-3xl border border-[var(--border-color)] bg-[var(--surface-color)] p-6 shadow-[var(--shadow-soft)]" aria-label="Resumo do template">
+					<div class="mb-6 flex items-center gap-4">
+						<img src="assets/img/icon-192.png" class="h-16 w-16 rounded-2xl" alt="Ícone do WebStart" width="64" height="64" loading="lazy">
+						<div>
+							<p class="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--muted-color)]">Incluído</p>
+							<p class="text-2xl font-bold">Base para produção</p>
+						</div>
+					</div>
+					<ul class="grid gap-3 text-sm text-[var(--muted-color)]" aria-label="Itens incluídos no template">
+						<li class="flex gap-3"><span class="color font-bold" aria-hidden="true">✓</span><span>HTML semântico com landmarks e navegação por teclado.</span></li>
+						<li class="flex gap-3"><span class="color font-bold" aria-hidden="true">✓</span><span>Tailwind CSS via CDN para prototipagem rápida.</span></li>
+						<li class="flex gap-3"><span class="color font-bold" aria-hidden="true">✓</span><span>Metadados de SEO, Open Graph, Twitter/X e JSON-LD.</span></li>
+						<li class="flex gap-3"><span class="color font-bold" aria-hidden="true">✓</span><span>Manifest PWA, robots, sitemap e página 404.</span></li>
+					</ul>
+				</aside>
+			</div>
+		</section>
+
+		<!-- Recursos -->
+		<section id="recursos" class="px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="titulo-recursos">
+			<div class="mx-auto max-w-7xl">
+				<div class="max-w-3xl">
+					<p class="text-sm font-bold uppercase tracking-[0.2em] text-[var(--primary-color)]">Recursos principais</p>
+					<h2 id="titulo-recursos" class="mt-3 text-3xl font-black tracking-tight sm:text-4xl">O essencial para não começar do zero.</h2>
+					<p class="mt-4 text-[var(--muted-color)]">A estrutura foi pensada para ser removida, adaptada ou expandida conforme a necessidade do projeto.</p>
+				</div>
+
+				<div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+					<article class="template-card">
+						<h3 class="text-xl font-bold">Sem build obrigatório</h3>
+						<p class="mt-3 text-[var(--muted-color)]">Tailwind via CDN permite iniciar rapidamente, sem Node.js, empacotador ou etapa de compilação.</p>
+					</article>
+					<article class="template-card">
+						<h3 class="text-xl font-bold">Acessível por padrão</h3>
+						<p class="mt-3 text-[var(--muted-color)]">Inclui skip link, foco visível, contraste aprimorado, labels em formulários e conteúdo estruturado.</p>
+					</article>
+					<article class="template-card">
+						<h3 class="text-xl font-bold">SEO preparado</h3>
+						<p class="mt-3 text-[var(--muted-color)]">Traz canonical, descrição, Open Graph, Twitter/X, JSON-LD, sitemap e robots para personalizar.</p>
+					</article>
+					<article class="template-card">
+						<h3 class="text-xl font-bold">PWA inicial</h3>
+						<p class="mt-3 text-[var(--muted-color)]">Manifest com ícones e screenshots para evoluir para instalação, cache e funcionamento offline.</p>
+					</article>
+					<article class="template-card">
+						<h3 class="text-xl font-bold">Tema claro e escuro</h3>
+						<p class="mt-3 text-[var(--muted-color)]">Alternância com JavaScript leve, preferência salva localmente e respeito ao tema do sistema.</p>
+					</article>
+					<article class="template-card">
+						<h3 class="text-xl font-bold">Estrutura simples</h3>
+						<p class="mt-3 text-[var(--muted-color)]">Arquivos organizados em HTML, CSS, JavaScript e assets para facilitar manutenção e reuso.</p>
+					</article>
 				</div>
 			</div>
-		</div>
+		</section>
+
+		<!-- Componentes de exemplo -->
+		<section id="componentes" class="border-y border-[var(--border-color)] bg-[var(--surface-muted)] px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="titulo-componentes">
+			<div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+				<div>
+					<p class="text-sm font-bold uppercase tracking-[0.2em] text-[var(--primary-color)]">Componentes</p>
+					<h2 id="titulo-componentes" class="mt-3 text-3xl font-black tracking-tight sm:text-4xl">Exemplos prontos para copiar e adaptar.</h2>
+					<p class="mt-4 text-[var(--muted-color)]">Use estes blocos como referência visual. Remova tudo que não fizer sentido para o projeto final.</p>
+				</div>
+
+				<div class="grid gap-5 md:grid-cols-2">
+					<article class="rounded-3xl border border-[var(--border-color)] bg-[var(--surface-color)] p-6 shadow-[var(--shadow-soft)]">
+						<p class="mb-4 inline-flex rounded-full bg-[var(--primary-soft)] px-3 py-1 text-sm font-bold text-[var(--primary-color)]">Card informativo</p>
+						<h3 class="text-xl font-bold">Destaque de benefício</h3>
+						<p class="mt-3 text-[var(--muted-color)]">Combine título, texto de apoio e chamada para ação para explicar recursos, serviços ou produtos.</p>
+						<a class="mt-5 inline-flex font-semibold text-[var(--primary-color)] hover:underline" href="#checklist">Personalizar agora</a>
+					</article>
+
+					<form class="rounded-3xl border border-[var(--border-color)] bg-[var(--surface-color)] p-6 shadow-[var(--shadow-soft)]" action="#" method="post" data-template-form aria-labelledby="titulo-formulario">
+						<h3 id="titulo-formulario" class="text-xl font-bold">Formulário de exemplo</h3>
+						<p class="mt-2 text-sm text-[var(--muted-color)]">Valide novamente no servidor antes de usar em produção.</p>
+						<div class="mt-5 grid gap-4">
+							<label class="grid gap-2 text-sm font-semibold" for="nome">Nome
+								<input class="template-input" id="nome" name="nome" type="text" autocomplete="name" placeholder="Seu nome" required>
+							</label>
+							<label class="grid gap-2 text-sm font-semibold" for="email">E-mail
+								<input class="template-input" id="email" name="email" type="email" autocomplete="email" placeholder="voce@exemplo.com" required>
+							</label>
+							<button class="btn-color justify-center" type="submit">Enviar exemplo</button>
+							<p class="text-sm text-[var(--muted-color)]" data-form-status role="status" aria-live="polite"></p>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+
+		<!-- Checklist -->
+		<section id="checklist" class="px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="titulo-checklist">
+			<div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+				<div>
+					<p class="text-sm font-bold uppercase tracking-[0.2em] text-[var(--primary-color)]">Antes de publicar</p>
+					<h2 id="titulo-checklist" class="mt-3 text-3xl font-black tracking-tight sm:text-4xl">Checklist rápido de personalização.</h2>
+					<p class="mt-4 text-[var(--muted-color)]">Este template mantém dados de exemplo por padrão. Troque-os por informações reais no início de cada projeto.</p>
+					<button class="mt-6 inline-flex rounded-full border border-[var(--border-color)] px-5 py-3 font-semibold transition hover:bg-[var(--surface-muted)]" type="button" data-copy="Trocar título, descrição, domínio, imagens, sitemap, robots, conteúdo, metadados sociais, JSON-LD e configurações de deploy.">
+						Copiar resumo do checklist
+					</button>
+				</div>
+
+				<ol class="grid gap-4 rounded-3xl border border-[var(--border-color)] bg-[var(--surface-color)] p-6 shadow-[var(--shadow-soft)]">
+					<li class="flex gap-4"><span class="check-number">1</span><span><strong>Conteúdo:</strong> substitua textos, imagens, links e chamadas para ação.</span></li>
+					<li class="flex gap-4"><span class="check-number">2</span><span><strong>SEO:</strong> revise título, descrição, canonical, Open Graph, Twitter/X e JSON-LD.</span></li>
+					<li class="flex gap-4"><span class="check-number">3</span><span><strong>Domínio:</strong> troque URLs de exemplo em HTML, sitemap e robots.</span></li>
+					<li class="flex gap-4"><span class="check-number">4</span><span><strong>Acessibilidade:</strong> teste teclado, foco, contraste, labels e textos alternativos.</span></li>
+					<li class="flex gap-4"><span class="check-number">5</span><span><strong>Segurança:</strong> configure headers no provedor final e valide formulários no servidor.</span></li>
+					<li class="flex gap-4"><span class="check-number">6</span><span><strong>Performance:</strong> otimize imagens e remova componentes de exemplo não usados.</span></li>
+				</ol>
+			</div>
+		</section>
+
+		<!-- Estrutura -->
+		<section id="estrutura" class="px-4 pb-20 sm:px-6 lg:px-8" aria-labelledby="titulo-estrutura">
+			<div class="mx-auto max-w-7xl rounded-3xl border border-[var(--border-color)] bg-[var(--surface-color)] p-6 shadow-[var(--shadow-soft)] md:p-8">
+				<div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+					<div>
+						<p class="text-sm font-bold uppercase tracking-[0.2em] text-[var(--primary-color)]">Organização</p>
+						<h2 id="titulo-estrutura" class="mt-3 text-3xl font-black tracking-tight sm:text-4xl">Estrutura enxuta e fácil de manter.</h2>
+						<p class="mt-4 text-[var(--muted-color)]">A base usa arquivos estáticos para facilitar publicação em hospedagens simples, GitHub Pages, Cloudflare Pages ou servidores tradicionais.</p>
+					</div>
+					<pre class="overflow-x-auto rounded-2xl border border-[var(--border-color)] bg-[var(--code-background)] p-5 text-sm leading-7 text-[var(--code-color)]" aria-label="Estrutura de pastas do template"><code>index.html
+404.html
+manifest.json
+robots.txt
+sitemap.xml
+assets/
+  css/styles.css
+  js/scripts.js
+  img/</code></pre>
+				</div>
+			</div>
+		</section>
 	</main>
 
-	<!-- Footer -->
-	<footer role="contentinfo">
-		<div class="container">
-			<p><strong>WebStart</strong> - Projeto com utilitários para iniciar um novo site</p>
-			<div class="links">
-				<a href="https://github.com/gmasson/webstart" target="_blank" rel="noopener noreferrer" aria-label="Ir para o repositório WebStart no GitHub (abre em nova aba)">Ir para o site</a>
+	<!-- Rodapé -->
+	<footer class="border-t border-[var(--border-color)] bg-[var(--surface-color)] px-4 py-10 sm:px-6 lg:px-8" role="contentinfo">
+		<div class="mx-auto flex max-w-7xl flex-col gap-6 md:flex-row md:items-center md:justify-between">
+			<div>
+				<p class="font-bold">WebStart</p>
+				<p class="mt-1 text-sm text-[var(--muted-color)]">Template com utilitários para iniciar novos projetos web.</p>
+			</div>
+			<div class="flex flex-wrap gap-3 text-sm font-semibold">
+				<a class="hover:underline" href="#recursos">Recursos</a>
+				<a class="hover:underline" href="#checklist">Checklist</a>
+				<a class="hover:underline" href="https://github.com/gmasson/webstart" target="_blank" rel="noopener noreferrer" aria-label="Abrir o repositório WebStart no GitHub em nova aba">Repositório</a>
 			</div>
 		</div>
 	</footer>
 
-	<!-- JS / Bootstrap Bundle 5.3.8 -->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-	<!-- <script src="assets/js/bootstrap.bundle.min.js" defer></script> -->
-
-	<!-- JS / Bootstrap 5.3.8 -->
-	<!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script> -->
-	<!-- <script src="assets/js/popper.min.js" defer></script> -->
-	<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script> -->
-	<!-- <script src="assets/js/bootstrap.min.js" defer></script> -->
-
-	<!-- JS / Scripts -->
+	<!-- Scripts do template -->
 	<script src="assets/js/scripts.js" defer></script>
 </body>
 </html>

@@ -1,103 +1,167 @@
-// Função para selecionar um elemento pelo ID
-function getById(id) {
-	return document.getElementById(id);
-}
+'use strict';
 
-// Função para adicionar uma classe a um elemento
-function addClass(element, className) {
-	if (!(element instanceof Element)) {
-		element = getById(element);
-	}
-	element.classList.add(className);
-}
+(() => {
+	const STORAGE_KEY = 'webstart-theme';
+	const DARK_THEME = 'dark';
+	const LIGHT_THEME = 'light';
+	const SELECTORS = {
+		copyButton: '[data-copy]',
+		form: '[data-template-form]',
+		formStatus: '[data-form-status]',
+		themeLabel: '[data-theme-label]',
+		themeToggle: '[data-theme-toggle]'
+	};
 
-// Função para remover uma classe de um elemento
-function removeClass(element, className) {
-	if (!(element instanceof Element)) {
-		element = getById(element);
-	}
-	element.classList.remove(className);
-}
-
-// Função para copiar um texto para a área de transferência usando API moderna
-async function copyToClipboard(text) {
-	try {
-		if (navigator.clipboard && navigator.clipboard.writeText) {
-			// API moderna - preferida
-			await navigator.clipboard.writeText(text);
-			console.log('Texto copiado com sucesso!');
-		} else {
-			// Fallback para navegadores mais antigos
-			const textArea = document.createElement("textarea");
-			textArea.value = text;
-			textArea.style.position = "fixed";
-			textArea.style.opacity = "0";
-			document.body.appendChild(textArea);
-			textArea.select();
-			document.execCommand("copy");
-			textArea.remove();
-			console.log('Texto copiado com sucesso (fallback)!');
+	const getStoredTheme = () => {
+		try {
+			return localStorage.getItem(STORAGE_KEY);
+		} catch {
+			return null;
 		}
-	} catch (error) {
-		console.error('Erro ao copiar texto:', error);
-		// Fallback em caso de erro
-		const textArea = document.createElement("textarea");
+	};
+
+	const setStoredTheme = (theme) => {
+		try {
+			localStorage.setItem(STORAGE_KEY, theme);
+		} catch {
+			/* Preferência não persistida quando o navegador bloqueia armazenamento local. */
+		}
+	};
+
+	const getSystemTheme = () => {
+		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			return DARK_THEME;
+		}
+
+		return LIGHT_THEME;
+	};
+
+	const updateThemeControls = (theme) => {
+		const nextTheme = theme === DARK_THEME ? LIGHT_THEME : DARK_THEME;
+		const label = nextTheme === DARK_THEME ? 'Usar tema escuro' : 'Usar tema claro';
+
+		document.querySelectorAll(SELECTORS.themeToggle).forEach((button) => {
+			button.setAttribute('aria-label', `Alternar para tema ${nextTheme === DARK_THEME ? 'escuro' : 'claro'}`);
+
+			const labelElement = button.querySelector(SELECTORS.themeLabel);
+			if (labelElement) {
+				labelElement.textContent = label;
+			}
+		});
+	};
+
+	const applyTheme = (theme) => {
+		const safeTheme = theme === DARK_THEME ? DARK_THEME : LIGHT_THEME;
+		document.body.setAttribute('data-theme', safeTheme);
+		document.documentElement.style.colorScheme = safeTheme;
+		updateThemeControls(safeTheme);
+	};
+
+	const toggleTheme = () => {
+		const currentTheme = document.body.getAttribute('data-theme') === DARK_THEME ? DARK_THEME : LIGHT_THEME;
+		const nextTheme = currentTheme === DARK_THEME ? LIGHT_THEME : DARK_THEME;
+		applyTheme(nextTheme);
+		setStoredTheme(nextTheme);
+	};
+
+	const fallbackCopyToClipboard = (text) => {
+		const textArea = document.createElement('textarea');
 		textArea.value = text;
-		textArea.style.position = "fixed";
-		textArea.style.opacity = "0";
+		textArea.setAttribute('readonly', '');
+		textArea.style.position = 'fixed';
+		textArea.style.top = '-9999px';
 		document.body.appendChild(textArea);
 		textArea.select();
-		document.execCommand("copy");
+
+		let copied = false;
+		try {
+			copied = document.execCommand('copy');
+		} catch {
+			copied = false;
+		}
+
 		textArea.remove();
-	}
-}
+		return copied;
+	};
 
-// Função para fazer um scroll suave até o topo da página
-function scrollToTop() {
-	window.scrollTo({
-		top: 0,
-		behavior: 'smooth'
-	});
-}
-
-// Função para aplicar o tema baseado na preferência do dispositivo
-function applyTheme() {
-	const body = document.body;
-	const savedTheme = localStorage.getItem('webstart-theme');
-	
-	if (savedTheme) {
-		// Usar tema salvo pelo usuário
-		body.setAttribute('data-theme', savedTheme);
-	} else {
-		// Usar preferência do sistema
-		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-			body.setAttribute('data-theme', 'dark');
-		} else {
-			body.setAttribute('data-theme', 'light');
+	const copyToClipboard = async (text) => {
+		if (!text) {
+			return false;
 		}
-	}
-}
 
-// Função para alternar tema manualmente
-function toggleTheme() {
-	const body = document.body;
-	const currentTheme = body.getAttribute('data-theme');
-	const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-	
-	body.setAttribute('data-theme', newTheme);
-	localStorage.setItem('webstart-theme', newTheme);
-}
-
-// Detectar mudanças na preferência do sistema
-if (window.matchMedia) {
-	const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-	mediaQuery.addEventListener('change', () => {
-		// Só aplicar tema do sistema se não houver preferência salva
-		if (!localStorage.getItem('webstart-theme')) {
-			applyTheme();
+		if (navigator.clipboard && navigator.clipboard.writeText) {
+			try {
+				await navigator.clipboard.writeText(text);
+				return true;
+			} catch {
+				return fallbackCopyToClipboard(text);
+			}
 		}
-	});
-}
 
-// Aplica o tema ao carregar a página
-document.addEventListener('DOMContentLoaded', applyTheme);
+		return fallbackCopyToClipboard(text);
+	};
+
+	const handleCopyButton = async (button) => {
+		const originalText = button.textContent;
+		const copied = await copyToClipboard(button.dataset.copy);
+		button.textContent = copied ? 'Copiado!' : 'Não foi possível copiar';
+
+		window.setTimeout(() => {
+			button.textContent = originalText;
+		}, 2200);
+	};
+
+	const handleDocumentClick = (event) => {
+		const themeButton = event.target.closest(SELECTORS.themeToggle);
+		if (themeButton) {
+			toggleTheme();
+			return;
+		}
+
+		const copyButton = event.target.closest(SELECTORS.copyButton);
+		if (copyButton) {
+			handleCopyButton(copyButton);
+		}
+	};
+
+	const setupTemplateForms = () => {
+		document.querySelectorAll(SELECTORS.form).forEach((form) => {
+			form.addEventListener('submit', (event) => {
+				event.preventDefault();
+
+				const status = form.querySelector(SELECTORS.formStatus);
+				if (status) {
+					status.textContent = 'Exemplo interceptado. Conecte este formulário a uma API segura antes de publicar.';
+				}
+			});
+		});
+	};
+
+	const setupSystemThemeListener = () => {
+		if (!window.matchMedia) {
+			return;
+		}
+
+		const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+		const handleChange = () => {
+			if (!getStoredTheme()) {
+				applyTheme(getSystemTheme());
+			}
+		};
+
+		if (mediaQuery.addEventListener) {
+			mediaQuery.addEventListener('change', handleChange);
+		} else if (mediaQuery.addListener) {
+			mediaQuery.addListener(handleChange);
+		}
+	};
+
+	const init = () => {
+		applyTheme(getStoredTheme() || getSystemTheme());
+		setupSystemThemeListener();
+		setupTemplateForms();
+		document.addEventListener('click', handleDocumentClick);
+	};
+
+	document.addEventListener('DOMContentLoaded', init);
+})();

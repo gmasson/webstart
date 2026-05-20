@@ -1,163 +1,211 @@
-/* Definição de variáveis do tema (padrão - Claro) */
+/*
+	WebStart 2.0
+	Estilos complementares para o template com Tailwind CSS via CDN.
+*/
+
+/* Variáveis do tema claro */
 :root {
-	--background-color: #fafafa;
-	--background-color-2: #fff;
-	--text-color: #333;
-	--text-color-2: #777;
-	--border-color: #ddd;
-	--shadow-color: rgba(0, 0, 0, 0.1);
-	--primary-color: #3498db;
-	--secondary-color: #2ecc71;
+	--background-color: #f8fafc;
+	--surface-color: #ffffff;
+	--surface-muted: #eef2ff;
+	--text-color: #0f172a;
+	--muted-color: #475569;
+	--border-color: #dbe4f0;
+	--primary-color: #1d4ed8;
+	--primary-color-hover: #1e40af;
+	--primary-color-contrast: #ffffff;
+	--primary-soft: #dbeafe;
+	--accent-color: #047857;
+	--focus-ring: #f59e0b;
+	--code-background: #0f172a;
+	--code-color: #e2e8f0;
+	--shadow-soft: 0 24px 80px rgba(15, 23, 42, 0.12);
 }
 
-/* Tema Escuro manual via atributo data-theme="dark" */
+/* Variáveis do tema escuro */
 [data-theme="dark"] {
-	--background-color: #222;
-	--background-color-2: #181818;
-	--text-color: #fff;
-	--text-color-2: #f4f4f4;
-	--border-color: #444;
-	--shadow-color: rgba(121, 121, 121, 0.1);
+	--background-color: #020617;
+	--surface-color: #0f172a;
+	--surface-muted: #111c34;
+	--text-color: #f8fafc;
+	--muted-color: #cbd5e1;
+	--border-color: #24324a;
+	--primary-color: #93c5fd;
+	--primary-color-hover: #bfdbfe;
+	--primary-color-contrast: #082f49;
+	--primary-soft: #172554;
+	--accent-color: #5eead4;
+	--focus-ring: #fbbf24;
+	--code-background: #020617;
+	--code-color: #dbeafe;
+	--shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.35);
 }
 
-/* Corpo da página */
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	background: var(--background-color);
 	color: var(--text-color);
-	font-family: Arial, sans-serif;
-	transition: background 0.2s ease, color 0.2s ease;
+	font-family: Arial, Helvetica, sans-serif;
+	transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+img,
+svg,
+video {
+	max-width: 100%;
+	height: auto;
 }
 
 a {
-	color: var(--text-color);
+	color: inherit;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
+::selection {
+	background: var(--primary-color);
+	color: var(--primary-color-contrast);
 }
 
-article {
-    line-height: 1.6;
-    font-size: 1.1em;
-    padding: 1em 0;
-    margin: 1.2em auto;
+:focus-visible {
+	outline: 3px solid var(--focus-ring);
+	outline-offset: 3px;
 }
 
-article img {
-    margin-bottom: 1em;
+/* Link para usuários de teclado pularem direto ao conteúdo */
+.skip-link {
+	position: fixed;
+	top: 1rem;
+	left: 1rem;
+	z-index: 9999;
+	transform: translateY(-150%);
+	border-radius: 999px;
+	background: var(--primary-color);
+	color: var(--primary-color-contrast);
+	font-weight: 700;
+	padding: 0.75rem 1rem;
+	box-shadow: var(--shadow-soft);
+	transition: transform 0.2s ease;
 }
 
-/*
-	Classes de cores
-*/
+.skip-link:focus {
+	transform: translateY(0);
+}
 
+/* Utilitários simples para reaproveitamento em novos projetos */
 .color {
 	color: var(--primary-color);
 }
 
 .bg-color {
 	background-color: var(--primary-color);
-	color: #fff;
+	color: var(--primary-color-contrast);
 }
 
 .btn-color {
-	padding: 0.6em 1.2em;
-	background-color: var(--primary-color);
-	color: #fff;
-	border: none;
-	border-radius: .3em;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	border: 0;
+	border-radius: 999px;
+	background: var(--primary-color);
+	color: var(--primary-color-contrast);
 	cursor: pointer;
-	transition: background 0.2s ease, transform 0.2s ease;
+	font-weight: 700;
+	line-height: 1;
+	padding: 0.85rem 1.2rem;
+	text-decoration: none;
+	transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .btn-color:hover {
-	filter: brightness(0.9);
+	background: var(--primary-color-hover);
+	transform: translateY(-1px);
 }
 
-/*
-	Componentes
-*/
+.site-header {
+	background: var(--surface-color);
+	background: color-mix(in srgb, var(--surface-color) 92%, transparent);
+}
 
-.box {
-	width: 100%;
-	padding: 1.6em 2.1em;
-	background: var(--background-color-2);
-	color: var(--text-color-2);
+.template-card {
 	border: 1px solid var(--border-color);
-	border-radius: .3em;
-	box-shadow: -.1em .1em .4em var(--shadow-color);
+	border-radius: 1.5rem;
+	background: var(--surface-color);
+	box-shadow: var(--shadow-soft);
+	padding: 1.5rem;
 }
 
-.table,
-.table * {
+.template-input {
+	width: 100%;
+	border: 1px solid var(--border-color);
+	border-radius: 1rem;
 	background: var(--background-color);
 	color: var(--text-color);
+	font: inherit;
+	padding: 0.85rem 1rem;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/*
-	Cabeçalho
-*/
-
-header {
-	width: 100%;
+.template-input::placeholder {
+	color: var(--muted-color);
+	opacity: 0.78;
 }
 
-header .logo {
-	height: 3em;
-	margin: 0;
+.template-input:focus {
+	border-color: var(--primary-color);
+	box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary-color) 22%, transparent);
+	outline: none;
 }
 
-header .navbar {
-	background: var(--background-color-2);
-	color: var(--text-color-2);
+.check-number {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 2rem;
+	height: 2rem;
+	flex: 0 0 2rem;
+	border-radius: 999px;
+	background: var(--primary-soft);
+	color: var(--primary-color);
+	font-weight: 800;
 }
 
-header .navbar .nav-item,
-header .navbar .nav-item .nav-link,
-header .navbar .nav-item .nav-link.active,
-header a {
-	color: var(--text-color-2);
+.template-grid-background {
+	background:
+		radial-gradient(circle at top left, color-mix(in srgb, var(--primary-color) 20%, transparent), transparent 28rem),
+		linear-gradient(135deg, transparent 0 45%, color-mix(in srgb, var(--border-color) 45%, transparent) 45% 46%, transparent 46% 100%);
 }
 
-header .navbar .nav-item .nav-link.active,
-header a:hover {
-	color: var(--text-color);
+/* Reduz animações para usuários com essa preferência no sistema */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+	}
 }
 
-header .navbar .nav-item:hover .nav-link {
-	filter: brightness(0.9);
-}
+/* Ajustes para impressão */
+@media print {
+	.skip-link,
+	[data-theme-toggle],
+	[data-copy],
+	footer a {
+		display: none !important;
+	}
 
-header .navbar .dropdown-menu,
-header .navbar .dropdown-menu .dropdown-item {
-	background: var(--background-color-2);
-	color: var(--text-color-2);
-}
+	body {
+		background: #ffffff;
+		color: #000000;
+	}
 
-header .navbar .dropdown-menu .dropdown-item:hover {
-	filter: brightness(0.9);
-}
-
-/*
-	Seções
-*/
-
-main,
-section {
-	width: 100%;
-	padding: 3em 0;
-}
-
-/*
-	Rodapé
-*/
-
-footer {
-	width: 100%;
-	padding: 2em 0;
-	background: var(--background-color-2);
-	color: var(--text-color);
-	border-top: 1px solid var(--border-color);
-	text-align: center;
+	a {
+		text-decoration: underline;
+	}
 }

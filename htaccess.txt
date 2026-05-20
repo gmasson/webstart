@@ -1,41 +1,69 @@
+# Modelo de configuração Apache para projetos baseados no WebStart.
+# Renomeie este arquivo para .htaccess somente em servidores Apache compatíveis.
+
 # Desabilitar a listagem de diretórios
 Options All -Indexes
 
-# Desabilitar case sensitive para acesso aos arquivos
-#CheckSpelling On
-
-# Forçar o uso do conjunto de caracteres UTF-8
+# Forçar o conjunto de caracteres UTF-8
 AddDefaultCharset UTF-8
 
-# Ativação do módulo de reescrita do Apache
-RewriteEngine On
+# Ativar o módulo de reescrita quando disponível
+<IfModule mod_rewrite.c>
+	RewriteEngine On
 
-# Remover a extensão .php das URLs
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.php -f
-RewriteRule ^([^/]+)/?$ $1.php [NC,L,QSA]
+	# Redirecionar página de erro para a página personalizada
+	ErrorDocument 404 /404.html
 
-# Redirecionar página de erro para sua respectiva página personalizada
-ErrorDocument 404 /404.html
+	# Redirecionar HTTP para HTTPS somente quando o ambiente final já usa HTTPS
+	# RewriteCond %{HTTP:X-Forwarded-Proto} !https
+	# RewriteCond %{HTTPS} off
+	# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Impedir o acesso direto a arquivos sensíveis
+	# Impedir hotlinking de imagens após trocar o domínio de exemplo
+	# RewriteCond %{HTTP_REFERER} !^$
+	# RewriteCond %{HTTP_REFERER} !^https://(www\.)?site.com/ [NC]
+	# RewriteRule \.(jpg|jpeg|png|gif|webp|svg)$ - [NC,F,L]
+</IfModule>
+
+# Impedir acesso direto a arquivos sensíveis
 <FilesMatch "(\.(ini|inc|log|sql|sqlite|db|htpasswd|htaccess|conf|config|gitignore|swp|old|bak|backup|dist|sh|bat|cmd)$)">
-    Order allow,deny
-    Deny from all
+	<IfModule mod_authz_core.c>
+		Require all denied
+	</IfModule>
+	<IfModule !mod_authz_core.c>
+		Order allow,deny
+		Deny from all
+	</IfModule>
 </FilesMatch>
 
-# Redirecionar HTTP para HTTPS
-#RewriteCond %{HTTP:X-Forwarded-Proto} !https
-#RewriteCond %{HTTPS} off
-#RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# Cabeçalhos básicos de segurança
+<IfModule mod_headers.c>
+	Header always set X-Content-Type-Options "nosniff"
+	Header always set X-Frame-Options "SAMEORIGIN"
+	Header always set Referrer-Policy "strict-origin-when-cross-origin"
+	Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
 
-# Impedir hotlinking
-#RewriteCond %{HTTP_REFERER} !^$
-#RewriteCond %{HTTP_REFERER} !^https://(www\.)?seusite.com/ [NC]
-#RewriteRule \.(jpg|jpeg|png|gif)$ - [NC,F,L]
+	# Ative HSTS somente em produção com HTTPS estável.
+	# Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
 
-# Desabilitar informações do servidor
-#ServerSignature Off
+	# Ajuste a CSP ao domínio final e aos CDNs realmente usados.
+	# Não use upgrade-insecure-requests em ambientes locais sem HTTPS.
+	# Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data: https:; script-src 'self' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; connect-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'"
+</IfModule>
 
-# Desabilitar a exibição de informações de erros
-#php_flag display_errors off
+# Cache para assets estáticos
+<IfModule mod_expires.c>
+	ExpiresActive On
+	ExpiresByType text/css "access plus 1 month"
+	ExpiresByType application/javascript "access plus 1 month"
+	ExpiresByType image/png "access plus 1 year"
+	ExpiresByType image/jpeg "access plus 1 year"
+	ExpiresByType image/svg+xml "access plus 1 year"
+	ExpiresByType application/manifest+json "access plus 1 week"
+</IfModule>
+
+# Reduzir exposição de informações do servidor quando permitido
+# ServerSignature Off
+
+# Desabilitar exibição de erros PHP quando o projeto evoluir para backend PHP
+# php_flag display_errors off
